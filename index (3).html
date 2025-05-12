@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CocaClub - Junte pontos, ganhe brindes!</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Arial', sans-serif;
+      background: url('https://images.unsplash.com/photo-1631321311267-2615e5b8b3d5') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+    }
+    header {
+      background-color: rgba(0,0,0,0.6);
+      padding: 30px 20px;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 48px;
+      color: #e4002b;
+    }
+    .slogan {
+      font-size: 20px;
+      margin-top: 10px;
+    }
+    .hero {
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .hero img {
+      width: 200px;
+      margin-top: 20px;
+    }
+    .carousel {
+      margin: 30px auto;
+      max-width: 90%;
+      overflow: hidden;
+      position: relative;
+      border-radius: 10px;
+    }
+    .carousel-track {
+      display: flex;
+      animation: scroll 15s linear infinite;
+    }
+    .carousel img {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 10px;
+    }
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+    .steps {
+      background-color: rgba(0,0,0,0.7);
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 800px;
+      margin: 40px auto;
+      text-align: left;
+    }
+    .steps h2 {
+      color: #e4002b;
+      margin-bottom: 15px;
+    }
+    .steps ol {
+      padding-left: 20px;
+    }
+    .steps li {
+      margin-bottom: 15px;
+    }
+    .scan-btn {
+      display: block;
+      margin: 30px auto;
+      background: #e4002b;
+      color: white;
+      padding: 15px 30px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .footer {
+      background-color: rgba(0,0,0,0.8);
+      padding: 20px;
+      text-align: center;
+      margin-top: 50px;
+      color: #aaa;
+      font-size: 14px;
+    }
+  </style>
+  <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+</head>
+<body>
+
+  <header>
+    <h1>CocaClub</h1>
+    <p class="slogan">Junte pontos. Ganhe momentos gelados!</p>
+  </header>
+
+  <div class="hero">
+    <h2>Escaneie sua latinha e participe</h2>
+    <img src="https://i.imgur.com/K2H4WxT.png" alt="Latinha com QR code"/>
+    <button class="scan-btn" onclick="startScanner()">Escanear QR Code</button>
+    <div id="reader" style="width:300px;margin:20px auto;"></div>
+  </div>
+
+  <div class="carousel">
+    <div class="carousel-track">
+      <img src="https://i.imgur.com/UtQJmKs.jpg" alt="Promoção 1" />
+      <img src="https://i.imgur.com/nw6z9EZ.jpg" alt="Promoção 2" />
+      <img src="https://i.imgur.com/j7Zq9YB.jpg" alt="Promoção 3" />
+    </div>
+  </div>
+
+  <div class="steps">
+    <h2>Como funciona a campanha:</h2>
+    <ol>
+      <li>Compre uma Coca-Cola participante.</li>
+      <li>Escaneie o QR code impresso na lata.</li>
+      <li>Acumule pontos aqui no site.</li>
+      <li>Troque por brindes exclusivos e momentos gelados.</li>
+    </ol>
+  </div>
+
+  <div class="footer">
+    Este site é um projeto fictício e não possui vínculo com a Coca-Cola Company.
+  </div>
+
+  <script>
+    function startScanner() {
+      const html5QrCode = new Html5Qrcode("reader");
+      html5QrCode.start(
+        { facingMode: "environment" },
+        {
+          fps: 10,
+          qrbox: 250
+        },
+        qrCodeMessage => {
+          alert("QR Code lido: " + qrCodeMessage);
+          html5QrCode.stop();
+        },
+        errorMessage => {
+          console.warn("Erro: " + errorMessage);
+        }
+      ).catch(err => {
+        console.error("Erro ao iniciar o scanner: " + err);
+      });
+    }
+  </script>
+</body>
+</html>
