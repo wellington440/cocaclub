@@ -2,18 +2,19 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CocaClub - Junte pontos, ganhe brindes!</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: url('https://img.freepik.com/free-photo/cola-splash-background_23-2147744976.jpg') no-repeat center center fixed;
+      background: url('https://images.unsplash.com/photo-1611078357734-bdd2e5a5e1fd?auto=format&fit=crop&w=1400&q=80') no-repeat center center fixed;
       background-size: cover;
       color: #fff;
     }
     header {
       background-color: rgba(228, 0, 43, 0.9);
+      color: white;
       padding: 20px;
       text-align: center;
     }
@@ -27,54 +28,40 @@
     }
     .container {
       padding: 20px;
-      max-width: 800px;
+      max-width: 900px;
       margin: auto;
-      background-color: rgba(0, 0, 0, 0.6);
+      background-color: rgba(0, 0, 0, 0.65);
       border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
     .btn {
-      display: inline-block;
       background-color: #e4002b;
       color: white;
       padding: 12px 24px;
-      text-decoration: none;
+      border: none;
       border-radius: 8px;
       font-weight: bold;
-      margin: 10px 0;
+      cursor: pointer;
+      margin-top: 10px;
     }
-    .section {
-      margin-top: 40px;
+    .btn:hover {
+      background-color: #c70024;
     }
-    .prize-list {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
+    #reader {
+      margin-top: 20px;
+      width: 100%;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
     }
-    .prize-item {
-      background-color: rgba(255, 255, 255, 0.1);
-      padding: 20px;
-      border-radius: 8px;
-      border: 1px solid #fff;
-      color: #fff;
-    }
-    .polar-support {
+    .mascote {
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       gap: 20px;
-      background-color: rgba(255, 255, 255, 0.1);
-      border-radius: 10px;
-      padding: 20px;
       margin-top: 30px;
     }
-    .polar-support img {
-      width: 120px;
-      height: auto;
+    .mascote img {
+      width: 130px;
       border-radius: 10px;
-    }
-    .polar-text {
-      max-width: 600px;
-      color: #fff;
     }
     footer {
       background-color: rgba(228, 0, 43, 0.9);
@@ -83,19 +70,8 @@
       padding: 20px;
       margin-top: 40px;
     }
-    @media (max-width: 600px) {
-      .prize-list {
-        grid-template-columns: 1fr;
-      }
-      .polar-support {
-        flex-direction: column;
-        align-items: center;
-      }
-      .polar-support img {
-        width: 80px;
-      }
-    }
   </style>
+  <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
 </head>
 <body>
   <header>
@@ -104,65 +80,51 @@
   </header>
 
   <div class="container">
-    <a class="btn" href="#">Escanear QR Code</a>
+    <h2>Escaneie o QR Code da embalagem</h2>
+    <button class="btn" onclick="startScanner()">Escanear QR Code</button>
+    <div id="reader"></div>
 
-    <div class="section polar-support">
-      <img src="https://www.worldofcoca-cola.com/wp-content/uploads/2015/11/Polar-Bear-Meet-Greet-1.jpg" alt="Urso Polar Coca-Cola">
-      <div class="polar-text">
-        <h3>Oi! Eu sou o Urso Polar da Coca-Cola 🐻❄️</h3>
-        <p>Estou aqui para te explicar como funciona:</p>
-        <ul>
-          <li>Compre produtos Coca-Cola participantes.</li>
-          <li>Escaneie o QR Code na embalagem ou tampinha.</li>
-          <li>Acumule pontos aqui no site.</li>
-          <li>Troque por prêmios geladinhos e exclusivos!</li>
-        </ul>
-        <p>Ficou com dúvidas? Eu te ajudo!</p>
+    <div class="mascote">
+      <img src="https://i.pinimg.com/originals/e9/f1/85/e9f185fcd23c3a1973dd84f832bfcf3a.png" alt="Urso Coca-Cola">
+      <div>
+        <h3>Oi, eu sou o Urso Polar!</h3>
+        <p>Compre produtos Coca-Cola, escaneie o QR Code e acumule pontos para ganhar prêmios!</p>
       </div>
     </div>
 
-    <div class="section">
-      <h2>Como funciona?</h2>
-      <p>Escaneie QR Codes nas embalagens da Coca-Cola para acumular pontos. Quanto mais você participa, mais chances tem de ganhar brindes exclusivos!</p>
-    </div>
-
-    <div class="section">
-      <h2>Seus pontos</h2>
-      <p>Total: <strong>260 pontos</strong></p>
-      <progress value="260" max="800"></progress>
-    </div>
-
-    <div class="section">
-      <h2>Catálogo de Prêmios</h2>
-      <div class="prize-list">
-        <div class="prize-item">
-          <h3>Coca-Cola grátis</h3>
-          <p>200 pontos</p>
-        </div>
-        <div class="prize-item">
-          <h3>Copo exclusivo</h3>
-          <p>300 pontos</p>
-        </div>
-        <div class="prize-item">
-          <h3>Camiseta oficial</h3>
-          <p>500 pontos</p>
-        </div>
-        <div class="prize-item">
-          <h3>Ingresso para evento</h3>
-          <p>800 pontos</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="section">
-      <h2>Trocar Pontos</h2>
-      <a class="btn" href="#">Resgatar Coca-Cola</a>
-    </div>
+    <h2>Catálogo de Prêmios</h2>
+    <ul>
+      <li>Coca-Cola grátis — 200 pontos</li>
+      <li>Copo exclusivo — 300 pontos</li>
+      <li>Camiseta oficial — 500 pontos</li>
+      <li>Ingresso para evento — 800 pontos</li>
+    </ul>
   </div>
 
   <footer>
-    <p>Este é um projeto ilustrativo sem afiliação oficial à The Coca-Cola Company.</p>
-    <p>Política de Privacidade | Termos de Uso</p>
+    <p>Projeto fictício sem afiliação oficial à The Coca-Cola Company.</p>
   </footer>
+
+  <script>
+    function startScanner() {
+      const html5QrCode = new Html5Qrcode("reader");
+      html5QrCode.start(
+        { facingMode: "environment" },
+        {
+          fps: 10,
+          qrbox: 250
+        },
+        qrCodeMessage => {
+          alert("QR Code lido: " + qrCodeMessage);
+          html5QrCode.stop();
+        },
+        errorMessage => {
+          console.warn("Erro de leitura: " + errorMessage);
+        }
+      ).catch(err => {
+        console.error("Erro ao iniciar scanner: " + err);
+      });
+    }
+  </script>
 </body>
 </html>
