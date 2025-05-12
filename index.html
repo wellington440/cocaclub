@@ -1,20 +1,19 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CocaClub - Junte pontos, ganhe brindes!</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #111;
+      background: url('https://img.freepik.com/free-photo/cola-splash-background_23-2147744976.jpg') no-repeat center center fixed;
+      background-size: cover;
       color: #fff;
     }
     header {
       background-color: rgba(228, 0, 43, 0.9);
-      color: white;
       padding: 20px;
       text-align: center;
     }
@@ -84,6 +83,18 @@
       padding: 20px;
       margin-top: 40px;
     }
+    @media (max-width: 600px) {
+      .prize-list {
+        grid-template-columns: 1fr;
+      }
+      .polar-support {
+        flex-direction: column;
+        align-items: center;
+      }
+      .polar-support img {
+        width: 80px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -96,9 +107,9 @@
     <a class="btn" href="#">Escanear QR Code</a>
 
     <div class="section polar-support">
-      <img src="https://i.imgur.com/VwCShzI.png" alt="Urso Polar Coca-Cola">
+      <img src="https://www.worldofcoca-cola.com/wp-content/uploads/2015/11/Polar-Bear-Meet-Greet-1.jpg" alt="Urso Polar Coca-Cola">
       <div class="polar-text">
-        <h3>Oi! Eu sou o Urso Polar da Coca-Cola</h3>
+        <h3>Oi! Eu sou o Urso Polar da Coca-Cola 🐻❄️</h3>
         <p>Estou aqui para te explicar como funciona:</p>
         <ul>
           <li>Compre produtos Coca-Cola participantes.</li>
